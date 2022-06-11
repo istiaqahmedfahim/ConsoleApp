@@ -70,6 +70,34 @@ public class cardholder
         }
 
 
+        List<cardholder> Cardholders = new List<cardholder>();
+        Cardholders.Add(new cardholder("12121212", 1234, "dwain", "jonson", 3000.00));
+        Cardholders.Add(new cardholder("23232323", 1111, "istiaq", "ahmed", 20000.00));
+        Cardholders.Add(new cardholder("34343434", 2222, "imtiaz", "ahmed", 40000.00));
+        Cardholders.Add(new cardholder("45454545", 3333, "zarin", "tasnim", 50000.00));
+        Cardholders.Add(new cardholder("56565656", 4444, "mojnu", "ara", 500000.00));
+        Cardholders.Add(new cardholder("67676767", 5555, "rafiqul", "islam", 600000.00));
+
+        Console.WriteLine("Welcome to ATM management system.");
+        Console.WriteLine("please enter your credit card number...");
+        string debitCardNum = "";
+        cardholder currentuser;
+
+        while (true)
+        {
+            try {
+                debitCardNum = Console.ReadLine();
+                currentuser = Cardholders.FirstOrDefault(a => a.cardNum == debitCardNum);
+                if(debitCardNum != null) { break; }
+                else
+                {
+                    Console.WriteLine("Enter Valid cardnumber & try again.");
+                }
+            }
+            catch { Console.WriteLine("Try again with Valid Cardnumber.") };
+              
+        }
+
     }
 
 
