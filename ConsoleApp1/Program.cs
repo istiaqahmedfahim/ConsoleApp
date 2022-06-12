@@ -2,19 +2,19 @@
 using System;
 public class cardholder
 {
-    string cardNum;
+    public string cardNum;
     int pin;
     string firstname;
     string lastname;
-    double balance;
+    public double balance;
 
-    public cardholder(string cardNum, int pin, string firstname, string lastname, double balance)
+    public cardholder(string CardNum, int Pin, string Firstname, string Lastname, double Balance)
     {
-        this.cardNum = cardNum;
-        this.pin = pin;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.balance = balance;
+        this.cardNum = CardNum;
+        this.pin = Pin;
+        this.firstname = Firstname;
+        this.lastname = Lastname;
+        this.balance = Balance;
     }
     public string getCardNum { get { return cardNum; } }
     public int getPin { get { return pin; } }
@@ -22,11 +22,11 @@ public class cardholder
     public double getBalance { get { return balance; } }
     public string getLastname { get { return lastname; } }
 
-    public void setCardNum(string cardNum) { cardNum = cardNum; }
-    public void setPin(int pin) { pin = pin; }
-    public void setFirstName(string firstname) { firstname = firstname; }
-    public void setLastName(string lastname) { lastname = lastname; }
-    public void setBalance(double balance) { balance = balance; }
+    public void setCardNum(string CardNum) { cardNum = CardNum; }
+    public void setPin(int Pin) { pin = Pin; }
+    public void setFirstName(string Firstname) { firstname = Firstname; }
+    public void setLastName(string Lastname) { lastname = Lastname; }
+    public void setBalance(double Balance) {  balance = Balance; }
 
     static void Main(string[] args)
     {  
@@ -40,11 +40,12 @@ public class cardholder
         
 
         void deposit(cardholder currentuser)
-        {
+        {   
             Console.WriteLine("How much money do you want to deposit on your account?");
             double deposit = double.Parse(Console.ReadLine());
-            currentuser.setBalance(deposit);
-            Console.WriteLine("You have Deposited"+currentuser.getBalance.ToString()+" BDT on your account.");
+            currentuser.setBalance(deposit+currentuser.getBalance);
+            Console.WriteLine("You have Deposited"+deposit.ToString()+" BDT on your account.");
+            Console.WriteLine("Your current balance is "+currentuser.getBalance.ToString()+"BDT.");
         }
         void withdraw(cardholder currentuser)
         {
@@ -57,8 +58,7 @@ public class cardholder
             else
             {
                 Console.WriteLine("Withdrawal Successful");
-                double current_balance = currentuser.getBalance - withdraw;
-                currentuser.setBalance(current_balance);
+                currentuser.setBalance(currentuser.getBalance - withdraw);
                 Console.WriteLine("Your current balance is " + currentuser.getBalance + " BDT");
             }
 
