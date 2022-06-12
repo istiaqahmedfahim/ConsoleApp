@@ -94,9 +94,42 @@ public class cardholder
                     Console.WriteLine("Enter Valid cardnumber & try again.");
                 }
             }
-            catch { Console.WriteLine("Try again with Valid Cardnumber.") };
+            catch { Console.WriteLine("Try again with Valid Cardnumber."); }
               
         }
+
+        Console.WriteLine("Enter your security pin number...");
+        int security_pin=0;
+
+        while (true)
+        {
+            try
+            {
+                security_pin = int.Parse(Console.ReadLine());
+                if(currentuser.getPin==security_pin) { break; }
+                else
+                {
+                    Console.WriteLine("Enter Valid security pin & try again.");
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Try again with Valid security pin number");
+            }
+        }
+        Console.WriteLine("Welcome " + currentuser.getFirstname + ".");
+
+        while(true)
+        {
+            print_options();
+            int choose =int.Parse(Console.ReadLine());
+            if(choose==1) { deposit(currentuser); }
+            else if(choose==2) { withdraw(currentuser); }
+            else if(choose ==3) { checkBalance(currentuser); }
+            else if(choose==4) { break; }
+            else { Console.WriteLine("Enter valid number to choose option."); }
+        }
+        Console.WriteLine("Thanks!Have a nice day");
 
     }
 
